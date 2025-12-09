@@ -1,0 +1,30 @@
+import TodoItem from "./TodoItem";
+
+export default function TodoList({
+  tasks,
+  onDelete,
+  onEdit,
+  onAddSubtask,
+  onToggleSubtask,
+  onView
+}) {
+  return (
+    <div style={{ marginTop: "20px" }}>
+      {tasks.length === 0 ? (
+        <p>No tasks yet!</p>
+      ) : (
+        tasks.map(task => (
+          <TodoItem
+            key={task.id}
+            task={task}
+            onDelete={onDelete}
+            onEdit={onEdit}
+            onAddSubtask={onAddSubtask}
+            onToggleSubtask={onToggleSubtask}
+            onView={onView}
+          />
+        ))
+      )}
+    </div>
+  );
+}
